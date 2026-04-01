@@ -1,0 +1,91 @@
+(a)Minimax Tree Evaluation
+Step 1: Bottom (MAX level)
+Compute values of each pair:
+A1 = max(5, 6) = 6
+A2 = max(7, 4) = 7
+D1 = max(3, 8) = 8
+D2 = max(6, 2) = 6
+G1 = max(1, 9) = 9
+G2 = max(4, 7) = 7
+Step 2: Middle (MIN level)
+Attack = min(6, 7) = 6
+Defend = min(8, 6) = 6
+Gather = min(9, 7) = 7
+Step 3: Root (MAX level)
+Root = max(6, 6, 7) = 7
+Final Decision: GATHER
+(b) Alpha-Beta Pruning
+We traverse left to right
+Root (MAX)
+α = -∞, β = +∞
+1. Attack (MIN)
+α = -∞, β = +∞
+A1 (MAX)
+Values: 5, 6 , max = 6
+α = 6
+Return 6
+ MIN updates:
+β = min(∞, 6) = 6
+A2 (MAX)
+α = -∞, β = 6
+Check first value:
+7 , α = 7
+Since α ≥ β (7 ≥ 6) , PRUNE next leaf (4)
+Return 7
+MIN:
+β = min(6, 7) = 6
+Attack returns 6
+Root update:
+α = max(-∞, 6) = 6
+2. Defend (MIN)
+α = 6, β = ∞
+D1 (MAX)
+Values: 3, 8 → max = 8
+Return 8
+MIN:
+β = min(∞, 8) = 8
+D2 (MAX)
+α = 6, β = 8
+Values:
+6, 2 → max = 6
+Return 6
+MIN:
+β = min(8, 6) = 6
+Now:
+β ≤ α → (6 ≤ 6) cutoff condition (no more children anyway)
+Defend returns 6
+Root update:
+α = max(6, 6) = 6
+3. Gather (MIN)
+α = 6, β = ∞
+G1 (MAX)
+Values: 1, 9 → max = 9
+Return 9
+MIN:
+β = min(∞, 9) = 9
+G2 (MAX)
+α = 6, β = 9
+Values:
+4, 7 → max = 7
+Return 7
+MIN:
+β = min(9, 7) = 7
+Gather returns 7
+Final Root:
+α = max(6, 7) = 7
+(c) Pruned Branches
+Only ONE branch pruned:
+A2 → second leaf (value 4)
+(d) Nodes Evaluated
+Method
+Leaf Nodes Evaluated
+Minimax
+12
+Alpha-Beta
+11
+Saved = 1 node
+(e) Why Alpha-Beta is Efficient
+Alpha-Beta pruning improves performance by:
+Skipping unnecessary branches
+Reducing computations
+Still giving same optimal result
