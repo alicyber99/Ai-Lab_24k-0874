@@ -1,0 +1,27 @@
+Data Cleaning & Encoding
+Missing values:
+Numerical  fill with mean/median
+Categorical (neighborhood) → fill with mode
+Encode neighborhood using:
+One-Hot Encoding (preferred)
+● Relevant Features
+Most impactful features:
+Square footage (strongest impact)
+Number of bedrooms & bathrooms
+Location (neighborhood)
+Age of house
+● Model & Evaluation
+Model used: Linear Regression
+Evaluation metrics:
+MAE (Mean Absolute Error)
+MSE (Mean Squared Error)
+R² Score
+Good model → low MAE/MSE, high R² (close to 1)
+● Prediction Example
+Given:
+2000 sq ft
+3 bedrooms
+2 bathrooms
+5 years old
+Good neighborhood
+Predicted price = Model output (e.g., ~PKR 2–3 crore depending on data)
