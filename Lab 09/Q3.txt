@@ -1,0 +1,27 @@
+Disease ───► Fever
+        ───► Cough
+        ───► Fatigue
+        ───► Chills
+
+Given:
+Fever = Yes
+Cough = Yes
+Using Bayes:
+P(Flu/Symptoms) / P(Flu) .P(Fever/Flu) . P(Cough / flu)
+= 0.3 x 0.9 x 0.8 = 0.216
+cold:
+= 0.7 x 0.5 x 0.6 = 0.21
+Normalize:
+P(Flu) = 0.21 / 0.426 = 0.507
+P(Cold) = 0.493
+
+Flu:
+0.3 x 0.9 x 0.8 x 0.6 = 0.1296
+Cold: 
+0.7 x 0.5 x 0.6 x 0.4 = 0.084
+Normalize:
+P(Flu) = 0.607
+P(Cold) = 0.393
+
+P(Fatigue = Yes/ Flu) = 0.7
+
