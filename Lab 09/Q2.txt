@@ -1,0 +1,103 @@
+Intelligence ─┐
+              ├──► Grade ───► Pass
+StudyHours ───┤
+Difficulty ───┘
+
+1. Priors
+P(I=High)=0.7, Low=0.3
+P(S=Sufficient)=0.6, Insufficient=0.4
+P(D=Hard)=0.4, Easy=0.6
+2. Grade CPT (Example)
+I
+S
+D
+P(A)
+P(B)
+P(C)
+High
+Sufficient
+Easy
+0.7
+0.2
+0.1
+High
+Sufficient
+Hard
+0.5
+0.3
+0.2
+High
+Insufficient
+Easy
+0.4
+0.4
+0.2
+High
+Insufficient
+Hard
+0.2
+0.4
+0.4
+Low
+Sufficient
+Easy
+0.5
+0.3
+0.2
+Low
+Sufficient
+Hard
+0.3
+0.4
+0.3
+Low
+Insufficient
+Easy
+0.2
+0.3
+0.5
+Low
+Insufficient
+Hard
+0.1
+0.3
+0.6
+3. Pass CPT
+P(Pass|A)=0.95
+P(Pass|B)=0.80
+P(Pass|C)=0.50
+ Python Code (pgmpy)
+Python
+from pgmpy.models import BayesianNetwork
+from pgmpy.inference import VariableElimination
+
+model = BayesianNetwork([
+    ('Intelligence', 'Grade'),
+    ('StudyHours', 'Grade'),
+    ('Difficulty', 'Grade'),
+    ('Grade', 'Pass')
+])
+
+# Inference
+infer = VariableElimination(model)
+
+# Query 1
+q1 = infer.query(variables=['Pass'],
+                 evidence={'StudyHours': 'Sufficient',
+                           'Difficulty': 'Hard'})
+
+# Query 2
+q2 = infer.query(variables=['Intelligence'],
+                 evidence={'Pass': 'Yes'})
+ Inference (Conceptual Answers)
+1. P(Pass | Sufficient, Hard)
+Since High intelligence increases A/B grades:
+ Approx result ≈ 0.75 – 0.85
+2. P(Intelligence = High | Pass = Yes)
+Passing strongly correlates with high intelligence:
+Approx result ≈ 0.7 – 0.85
+
+
+
+
+
