@@ -1,0 +1,24 @@
+Data Cleaning & Scaling
+Handle missing values
+Remove outliers
+Apply feature scaling (Standardization)
+● Train-Test Split
+Split data:
+70% training
+30% testing
+● Separating Hyperplane
+Model used: Support Vector Machine (SVM)
+SVM finds a line (hyperplane) that separates:
+High-value (1)
+Low-value (0)
+● Classification Rules
+Example rules:
+Spending > 50,000 → High-value
+Visits > 10 → High-value
+Low spending + low visits → Low-value
+● Evaluation
+Accuracy
+Confusion Matrix
+Good model:
+High accuracy
+Low misclassification
