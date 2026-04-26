@@ -1,0 +1,22 @@
+1. Probability of drawing a red card
+A standard deck has 52 cards
+Red cards = Hearts (13) + Diamonds (13) = 26
+P(Red) = 26/52 = 1/2
+
+2. Given red card probability it is a heart
+P(Heart | Red ) = 13 / 26 = 1/2
+
+3. Given face card probability it is a diamond
+Face cards = Jack, Queen, King
+Each suit has 3 
+total = 12 face cards
+Diamonds face cards = 3
+P(Diamond|Face) = 3/12 = 1/4
+
+4. Given face card → probability it is spade OR queen
+Face cards = 12
+Spade face cards = 3
+Queens (all suits) = 4
+Overlap (Queen of Spades) = 1
+P( Spade OR Queen) = (3+4-1)/12 = 6/12 = 1/2
+
