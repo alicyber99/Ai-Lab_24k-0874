@@ -1,0 +1,20 @@
+Preprocessing
+Convert text to lowercase
+Remove stopwords
+Tokenization
+Convert text → numeric using TF-IDF
+● Model Training
+Model used: Naive Bayes (best for text classification)
+● Evaluation
+Accuracy
+Precision
+Recall
+F1-score
+Good model:
+High precision → fewer false spam
+High recall → catches most spam
+● Deployment
+Save model using pickle
+Use in email system to classify:
+Spam = 1
+Not Spam = 0
