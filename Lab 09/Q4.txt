@@ -1,0 +1,30 @@
+Sunny (S)
+Cloudy (C)
+Rainy (R)
+
+[ 0.6  0.3  0.1
+  0.3  0.4  0.3
+  0.2  0.3  0.5]
+
+import random
+
+states = ['Sunny', 'Cloudy', 'Rainy']
+
+transition = {
+    'Sunny': [0.6, 0.3, 0.1],
+    'Cloudy': [0.3, 0.4, 0.3],
+    'Rainy': [0.2, 0.3, 0.5]
+}
+
+current = 'Sunny'
+days = []
+
+for _ in range(10):
+    days.append(current)
+    current = random.choices(states, transition[current])[0]
+
+print(days)
+Probability of ≥ 3 Rainy Days
+Approx using binomial assumption (p ≈ 0.3):
+Result:
+👉 ≈ 0.65 – 0.75
